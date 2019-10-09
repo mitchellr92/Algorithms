@@ -3,7 +3,38 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+
+  all_batches = []
+
+  # Compare length of both dictionaries
+  if len(recipe) != len(ingredients):
+    # If lengths are not even, return batches
+    return 0
+
+  # Compare values of matching ingredient names in both dictionaries
+  for rec_key, rec_value in recipe.items():
+    for ingr_key, ingr_value in ingredients.items():
+      if rec_key == ingr_key:
+        # Divide each rec value by each matching ingr value
+        current_batches = ingr_value / rec_value
+        all_batches.append(current_batches)
+
+  # Take lowest quotient and set batches to that value
+  batches = min(float(num) for num in all_batches)
+  batches = math.floor(batches)
+  print(batches)
+  
+  # If lowest quotient is less than 1, return 0
+  if batches < 1:
+    return 0
+
+  return batches
+
+
+rec = { 'milk': 2, 'sugar': 40, 'butter': 20 }
+ingr = { 'milk': 5, 'sugar': 120, 'butter': 500 }
+
+recipe_batches(rec, ingr)
 
 
 if __name__ == '__main__':
