@@ -6,7 +6,18 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
-  pass
+
+  print(n)
+  if n <= 1:
+    return 1
+
+  cookie_combos = eating_cookies(n - 1) + eating_cookies(n // 2)
+  print(f"combos: {cookie_combos}")
+
+
+  return cookie_combos
+
+eating_cookies(3)
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:

@@ -8,7 +8,7 @@ def recipe_batches(recipe, ingredients):
 
   # Compare length of both dictionaries
   if len(recipe) != len(ingredients):
-    # If lengths are not even, return batches
+    # If lengths are not even, return 0
     return 0
 
   # Compare values of matching ingredient names in both dictionaries
@@ -31,7 +31,7 @@ def recipe_batches(recipe, ingredients):
   return batches
 
 
-rec = { 'milk': 2, 'sugar': 40, 'butter': 20 }
+rec = { 'milk': 2, 'butter': 20, 'sugar': 40 }
 ingr = { 'milk': 5, 'sugar': 120, 'butter': 500 }
 
 recipe_batches(rec, ingr)
